@@ -9,3 +9,5 @@ services:
       - POSTGRES_PASSWORD=152124
     ports:
      - 1521:1521
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
