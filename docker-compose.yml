@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=APIs-Rest
+      - POSTGRES_USER=Jhon
+      - POSTGRES_PASSWORD=152124
+    ports:
+     - 1521:1521
