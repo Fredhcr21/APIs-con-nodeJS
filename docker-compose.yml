@@ -11,3 +11,11 @@ services:
      - 1521:1521
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
+
+  registry:
+      image: ibmcom/registry
+      environment:
+        - PGADMIN_DEFAULT_EMAIL=regis@mail.com
+        - PGADMIN_DEFAULT_PASSWORD=1521
+      ports:
+        - 2222:50
