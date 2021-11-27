@@ -43,8 +43,7 @@ router.post(
   }
 );
 
-router.patch(
-  '/:id',
+router.patch('/:id',
   validatorHandler(getProductSchema, 'params'),
   validatorHandler(updateProductSchema, 'body'),
   async (req, res, next) => {

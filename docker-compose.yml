@@ -8,14 +8,36 @@ services:
       - POSTGRES_USER=Jhon
       - POSTGRES_PASSWORD=152124
     ports:
-     - 1521:1521
+     - 5432:5432
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
 
-  registry:
-      image: ibmcom/registry
-      environment:
-        - PGADMIN_DEFAULT_EMAIL=regis@mail.com
-        - PGADMIN_DEFAULT_PASSWORD=1521
-      ports:
-        - 2222:50
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+        - PGADMIN_DEFAULT_EMAIL=pgadmin@mail.com
+        - PGADMIN_DEFAULT_PASSWORD=pg1521
+    ports:
+        - 5050:80
+
+  mysql:
+    image: mysql:5
+    environment:
+      - MYSQL_DATABASE=APIs-Rest
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=152124
+      - MYSQL_PORT=3306
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - MYSQL_ROOT_USER=Jhon
+      - MYSQL_ROOT_PASSWORD=152124
+      - PMA_HOST=mysql
+
+    ports:
+      - 2190:80
