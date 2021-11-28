@@ -1,4 +1,5 @@
-const { Sequelize } = require('sequelize');
+const { Sequelize } = require("sequelize");
+
 
 const { config } = require('../config/config');
 const setupmModels = require('../models/index');
@@ -6,14 +7,12 @@ const setupmModels = require('../models/index');
 
 const USER = encodeURIComponent(config.dbUSER);
 const PASSWORD = encodeURIComponent(config.dbPASSWORD);
-const URI = `mysql://${USER}:${PASSWORD}@${config.dbHOST}:${config.dbPORT}/${config.dbNAME}`;
-console.log(URI);
-
+const URI = `sqlite://${USER}:${PASSWORD}@${config.dbHOST}:${config.dbPORT}/${config.dbNAME}`;
 
 const sequelize = new Sequelize(URI, {
-  dialect: 'mysql',
-  logging: true,
-
+  dialect: 'sqlite',
+  storage: 'path/to/database.sqlite',
+  logging: false
 });
 
 setupmModels(sequelize);

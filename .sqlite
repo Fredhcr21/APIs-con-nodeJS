@@ -1,0 +1,10 @@
+  sqlite:
+    environment:
+      - SQLITE_DATABASE=APIs-Rest
+      - SQLITE_USER=root
+      - SQLITE_ROOT_PASSWORD=152124
+      - SQLITE_PORT=3322
+    ports:
+      - 3322:3322
+    volumes:
+      - ./sqlite_data:/var/lib/sqlite
